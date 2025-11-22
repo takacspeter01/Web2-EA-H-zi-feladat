@@ -4,9 +4,9 @@
 
 @section('content')
 <div class="container mt-4">
-    <h1 class="mb-4">Trails</h1>
+    <h1 class="mb-4">Tanösvények (CRUD)</h1>
 
-    <a href="{{ route('trails.create') }}" class="btn btn-primary mb-3">Add New Trail</a>
+    <a href="{{ route('trails.create') }}" class="btn btn-primary mb-3">Új ösvény hozzáadása</a>
 
     <table class="table table-striped">
         <thead>
@@ -32,13 +32,13 @@
                     <td>{{ $trail->vezetes ? 'Van' : 'Nincs' }}</td>
                     <td>{{ $trail->settlement->nev ?? '—' }}</td>
                     <td>
-                        <a href="{{ route('trails.edit', $trail->azon) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('trails.edit', $trail->azon) }}" class="btn btn-sm btn-warning">Módosít</a>
 
                         <form action="{{ route('trails.destroy', $trail->azon) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <button onclick="return confirm('Delete this trail?')" class="btn btn-sm btn-danger">
-                                Delete
+                                Törlés
                             </button>
                         </form>
                     </td>
