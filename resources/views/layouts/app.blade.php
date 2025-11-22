@@ -12,103 +12,117 @@
         <link rel="stylesheet" href="{{ asset('assets/css/LineIcons.2.0.css') }}"/>
         <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}"/>
         <link rel="stylesheet" href="{{ asset('assets/css/lindy-uikit.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     </head>
     <body>
         {{-- ==== NAVBAR ==== --}}
-        <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('assets/img/logo/logo.svg') }}" alt="Logo" />
-            </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="toggler-icon"></span>
-                <span class="toggler-icon"></span>
-                <span class="toggler-icon"></span>
-            </button>
+        <div class="hero-section-wrapper-2">
 
-            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent2">
-                <ul id="nav2" class="navbar-nav ml-auto">
-                    {{-- Főoldal --}}
-                    <li class="nav-item">
-                        <a class="page-scroll" href="{{ route('home') }}">Főoldal</a>
-                    </li>
+        <header class="header header-2">
+            <div class="navbar-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg">
 
-                    {{-- Adatbázis --}}
-                    <li class="nav-item">
-                        <a class="page-scroll" href="{{ route('database.index') }}">Adatbázis</a>
-                    </li>
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="{{ route('home') }}">
+                            <img src="{{ asset('assets/img/logo/logo.svg') }}" alt="Logo"> 
+                        </a>
 
-                    {{-- Utak CRUD --}}
-                    <li class="nav-item">
-                        <a class="page-scroll" href="{{route('trails.index')}}">UtakCRUD</a>
-                    </li>
+                        <!-- Mobile Toggle -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
 
-                    {{-- Diagram --}}
-                    <li class="nav-item">
-                     <a class="page-scroll" href="{{ route('diagram.index') }}">Diagram</a>
-                    </li>
+                        <!-- Navigation -->
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent2">
+                            <ul id="nav2" class="navbar-nav ml-auto align-items-center">
 
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{{ route('home') }}">Főoldal</a>
+                                </li>
 
-                    {{-- Kapcsolat --}}
-                    <li class="nav-item">
-                        <a class="page-scroll" href="{{ route('contact.form') }}">Kapcsolat</a>
-                    </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{{ route('database.index') }}">Adatbázis</a>
+                                </li>
 
-                    {{-- Üzenetek – csak belépve --}}
-                    @auth
-                        <li class="nav-item">
-                            <a class="page-scroll" href="{{ route('messages.index') }}">Üzenetek</a>
-                        </li>
-                    @endauth
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{{ route('trails.index') }}">Utak CRUD</a>
+                                </li>
 
-                    {{-- Admin – csak admin --}}
-                    @can('is-admin')
-                        <li class="nav-item">
-                            <a class="page-scroll" href="{{ route('admin.index') }}">Admin</a>
-                        </li>
-                    @endcan
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{{ route('diagram.index') }}">Diagram</a>
+                                </li>
 
-                    {{-- Login / Regisztráció --}}
-                    @guest
-                        <li class="nav-item">
-                            <a class="page-scroll" href="{{ route('login') }}">Bejelentkezés</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="page-scroll" href="{{ route('register') }}">Regisztráció</a>
-                        </li>
-                    @endguest
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{{ route('contact.form') }}">Kapcsolat</a>
+                                </li>
 
-                    @auth
-                        <li class="nav-item">
-                            <span class="nav-link">
-                                {{ auth()->user()->name }} ({{ auth()->user()->role }})
-                            </span>
-                        </li>
-                        <li class="nav-item">
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button class="button button-sm radius-10" type="submit">
-                                    Kijelentkezés
-                                </button>
-                            </form>
-                        </li>
-                    @endauth
-                </ul>
+                                @can('is-admin')
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{{ route('admin.index') }}">Admin</a>
+                                </li>
+                                @endcan
+
+                                @auth
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{{ route('messages.index') }}">Üzenetek</a>
+                                </li>
+                                @endauth
+
+                                @guest
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="{{ route('login') }}">Bejelentkezés</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('register') }}" class="main-btn btn-hover">Regisztráció</a>
+                                </li>
+                                @endguest
+
+                                @auth
+                                <li class="nav-item d-flex align-items-center">
+                                    <span class="nav-link text-muted mr-2">
+                                        {{ auth()->user()->name }} ({{ auth()->user()->role }})
+                                    </span>
+                                </li>
+                                <li class="nav-item">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button class="main-btn btn-hover" type="submit">
+                                            Kijelentkezés
+                                        </button>
+                                    </form>
+                                </li>
+                                @endauth
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
-        </nav>
+        </header>
+
         {{-- ==== NAVBAR VÉGE ==== --}}
 
         <!-- Page Content -->
-        <main>
+        <div class="hero-section-wrapper-2">
             @yield('content')
-        </main>
+        </div>
 
         <!-- Flat JS -->
         <script src="{{ asset('assets/js/bootstrap.5.0.0.alpha-2-min.js') }}"></script>
         <script src="{{ asset('assets/js/count-up.min.js') }}"></script>
         <script src="{{ asset('assets/js/wow.min.js') }}"></script>
         <script src="{{ asset('assets/js/main.js') }}"></script>
+        <script>
+            new WOW().init();
+        </script>
+        <a href="#" class="scroll-top btn-hover">
+            <i class="lni lni-chevron-up"></i>
+        </a>
     </body>
 </html>

@@ -3,7 +3,7 @@
 @section('title', 'Create Trail')
 
 @section('content')
-<div class="container mt-4">
+<div class="container" style="padding-top:140px;">
     <h1>Tanösvény létrehozása</h1>
 
     <form action="{{ route('trails.store') }}" method="POST">

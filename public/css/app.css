@@ -1685,3 +1685,23 @@ select {
   }
 }
 
+.main-btn {
+    display: inline-block;
+    background: #3056d3;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.main-btn:hover {
+    background: #1e3fa9;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.page-section {
+    padding-top: 140px;
+}

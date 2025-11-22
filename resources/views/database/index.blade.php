@@ -3,7 +3,7 @@
 @section('title', 'Adatbázis – Tanösvények')
 
 @section('content')
-    <div class="container py-5">
+    <div class="container" style="padding-top:140px;">
         <h1 class="mb-4">Tanösvények (Adatbázis menü)</h1>
 
         <table class="table table-striped bg-white">

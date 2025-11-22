@@ -3,7 +3,7 @@
 @section('title', 'Tanösvények (CRUD)')
 
 @section('content')
-<div class="container mt-4">
+<div class="container" style="padding-top:140px;">
     <h1 class="mb-4">Tanösvények (CRUD)</h1>
 
     <a href="{{ route('trails.create') }}" class="btn btn-primary mb-3">Új ösvény hozzáadása</a>

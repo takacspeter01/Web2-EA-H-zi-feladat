@@ -3,7 +3,7 @@
 @section('title', 'Edit Trail')
 
 @section('content')
-<div class="container mt-4">
+<div class="container" style="padding-top:140px;">
     <h1>Tanösvény módosítás</h1>
 
     <form action="{{ route('trails.update', $trail->azon) }}" method="POST">

@@ -3,11 +3,12 @@
 @section('title', 'Diagram')
 
 @section('content')
-<div class="container mt-5">
-    <h2 class="mb-4">Tanösvények száma településenként</h2>
 
+ <div class="container" style="padding-top:140px;">
+    <h2 class="mb-4">Tanösvények száma településenként</h2>
     <canvas id="trailChart" height="120"></canvas>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
