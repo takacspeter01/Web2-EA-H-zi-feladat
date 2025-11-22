@@ -40,6 +40,12 @@
                         <a class="page-scroll" href="{{ route('database.index') }}">Adatbázis</a>
                     </li>
 
+                    {{-- Utak CRUD --}}
+                    <li class="nav-item">
+                        <a class="page-scroll" href="{{route('trails.index')}}">UtakCRUD</a>
+                    </li>
+
+
                     {{-- Kapcsolat --}}
                     <li class="nav-item">
                         <a class="page-scroll" href="{{ route('contact.form') }}">Kapcsolat</a>

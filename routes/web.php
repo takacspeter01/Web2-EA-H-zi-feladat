@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\DatabaseController;
+use App\Http\Controllers\TrailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::post('/kapcsolat', [MessageController::class, 'store'])
     // Adatbázis menü
 Route::get('/adatbazis', [DatabaseController::class, 'index'])
     ->name('database.index');
+
+    // CRUD
+Route::resource('trails', TrailController::class);
 
 // Auth-hoz kötött route-ok
 Route::middleware('auth')->group(function () {
