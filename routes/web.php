@@ -37,6 +37,10 @@ Route::get('/adatbazis', [DatabaseController::class, 'index'])
     // CRUD
 Route::resource('trails', TrailController::class);
 
+    // Diagram
+Route::get('/diagram', [\App\Http\Controllers\DiagramController::class, 'index'])
+    ->name('diagram.index');
+
 // Auth-hoz kötött route-ok
 Route::middleware('auth')->group(function () {
 

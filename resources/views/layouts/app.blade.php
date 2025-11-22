@@ -45,6 +45,11 @@
                         <a class="page-scroll" href="{{route('trails.index')}}">UtakCRUD</a>
                     </li>
 
+                    {{-- Diagram --}}
+                    <li class="nav-item">
+                     <a class="page-scroll" href="{{ route('diagram.index') }}">Diagram</a>
+                    </li>
+
 
                     {{-- Kapcsolat --}}
                     <li class="nav-item">
