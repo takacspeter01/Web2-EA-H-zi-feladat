@@ -63,4 +63,11 @@ Route::middleware('auth')->group(function () {
     })->name('admin.index');
 });
 
+// ADMIN ROUTE - csak admin
+Route::middleware(['auth', 'can:is-admin'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.index');
+    })->name('admin.index');
+});
+
 require __DIR__.'/auth.php';
